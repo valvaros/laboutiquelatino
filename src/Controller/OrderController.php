@@ -93,6 +93,8 @@ class OrderController extends AbstractController
              }
              
              $this->entityManager->flush();
+
+             Stripe::setApiKey
              
              return $this->render('order/add.html.twig',[
                 'cart'=> $cart->getFull(),

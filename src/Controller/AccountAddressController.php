@@ -21,7 +21,7 @@ class AccountAddressController extends AbstractController
         $this->entityManager = $entityManager;
     }
     /**
-     * @Route("/compte/adresses", name="account_address")
+     * @Route("/compte/addresses", name="account_address")
      */
     public function index(): Response
     {
