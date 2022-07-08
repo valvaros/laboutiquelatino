@@ -25,13 +25,17 @@ class RegisterController extends AbstractController
     public function index(Request $request, UserPasswordHasherInterface $encoder)
     {
 
+        $notification = null;
+
         $user = new User();
         $form = $this->createForm(RegisterType::class, $user);
 
         $form->handleRequest($request);
 
         if($form->isSubmitted()&& $form->isValid()){
+            $user = $form->getData();
 
+            
             $password = $encoder->hashPassword($user,$user->getPassword());
 
             $user->setPassword($password);
@@ -40,8 +44,17 @@ class RegisterController extends AbstractController
             $this->entityManager->persist($user);
             $this->entityManager->flush();
 
-            return $this->redirectToRoute('app_login');
-        }
+            
+            
+            
+            }
+
+
+            
+            
+
+            
+        
 
         return $this->render('register/index.html.twig',[
             'form' => $form->createView()
