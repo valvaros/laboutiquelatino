@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Form;
-
+// pour créer le formulaire on fait php bin/console 
 use App\Entity\Address;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;

@@ -7,7 +7,7 @@
 	<h1>Mon panier</h1>
 	Retrouvez l'ensemble des produits que vous avez ajouté à votre panier
 
-	{% if cart|lenght > 0 %}
+	{% if cart|length > 0 %}
 		<table class="table mt-3">
 			<thead>
 				<tr>
@@ -41,8 +41,9 @@
 						<td>{{(product.product.price/100)|number_format(2, ',','.')}}€</td>
 						<td>{{(product.product.price * product.quantity/100)|number_format(2, ',','.')}}€</td>
 						<td>
-							<a href="">
-								<img src="{{asset('asset/img/poubelle.jpg')}}" height='18px' alt="Supprimer mon produit"></td>
+							<a href="{{ path('remove_my_cart')}}">
+								<img src="{{asset('asset/img/poubelle.jpg')}}" height='18px' alt="Supprimer mon produit">
+							</a>
 						</td>
 					</tr>
 					{% set total = total + (product.product.price * product.quantity) %}

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Repository;
+//  le dossier Repository sert à accéder à nos données il est créer à l'aide du template twig 
 
 use App\Entity\Address;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;

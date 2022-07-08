@@ -7,6 +7,7 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
     <title>{% block title %} La Boutique Latino - 100% latino  {% endblock %}</title>
+    <meta name="description" content="boutique en ligne vendant des produits latino en grande quantité">
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('asset/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -34,7 +35,7 @@
 <body>
 <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="{{path('home')}}">La Boutique Latino</a>
+        <a class="navbar-brand" href="{{path('home')}}">LaBoutiqueLatino</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -44,22 +45,18 @@
                     <a class="nav-link" href="{{path('products')}}">Nos produits</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Qui sommes-nous?</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="{{path('contact')}}">Contact</a>
                 </li>
             </ul>
             <div class="navbar-item-custom">
            {% if app.user %}
-                <a href="{{ path('account')}}">Mon compte<small>({{ app.user.firstname}})</small></a> | <a href="{{path('app_logout')}}}">Déconnexion</a>
+                <a href="{{ path('app_account')}}">Mon compte<small>({{ app.user.firstname}})</small></a> | <a href="{{ path('app_logout')}}">Déconnexion</a>
            {% else %}
-                <a href="{{ path('app_login')}}">Connexion</a> | <a href="{{path('register')}}}">Inscription</a>
+                <a href="{{ path('app_login')}}">Connexion</a> | <a href="{{ path('register') }}">Inscription</a>
            {% endif %}
            </div>
-           <a href="{{path('app_cart')}}">
-           <img src="{{asset('assets/img*shopping-cart.png')}}" class="cart-icon"alt="Mon panier">
-           </a>
+           <a href="{{path('cart')}}">
+           <img src="{{asset('assets/img*shopping-cart.png') }}" class="cart-icon">Mon panier</a>
         </div>
     </nav>
 </header>
@@ -75,12 +72,12 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
+                <svg class="bd-placeholder-img" width="100%" height="100%" xmlms="" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
                 <div class="container">
                     <div class="carousel-caption text-left">
-                        <h1>Actualités</h1>
-                        <img src ="/asset/img/chicha.jpg height="200px"><p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                        <h1>Notre découverte du jour </h1>
+                        <img src ="/asset/img/salsahuacatay.jpg" height="200px">
+                        <p>Sauce péruvienne préparer avec des feuilles de hucatay , épicer et relevée elle apporte une petite saveur aromatique</p>
                     </div>
                 </div>
             </div>
@@ -89,8 +86,8 @@
                 <div class="container">
                     <div class="carousel-caption">
                         <h1>INCA KOLA .</h1>
-                        <img src="/asset/img/inca.jpg" height ="200px"><p>L'Inca Kola est une boisson gazeuse péruvienne. Ce cola est vendu quasi exclusivement au Pérou où il est la boisson gazeuse nationale.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                        <img src="/asset/img/inca.jpg" height ="200px"><p>L'Inca Kola est une boisson gazeuse péruvienne. Ce cola est la boisson gazeuse nationale, il est consommer par tous les habitants.</p>
+                        
                     </div>
                 </div>
             </div>
@@ -99,19 +96,19 @@
                 <div class="container">
                     <div class="carousel-caption text-right">
                         <h2>Aji Amarillo.</h2>
-                        <img src ="/asset/img/aji.jpg"><p>L'Ají Amarillo, littéralement Piment jaune, est la variété la plus utilisée dans la cuisine péruvienne. Très aromatique, très goûteuse et moyennement relevée, cette purée d'Ají Amarillo vous sera indispensable.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                        <img src ="/asset/img/aji.jpg" height= "200px"><p>L'Ají Amarillo, littéralement Piment jaune, est la variété la plus utilisée dans la cuisine péruvienne. Très aromatique, très goûteuse et moyennement relevée, cette purée d'Ají Amarillo vous sera indispensable.</p>
+                        
                     </div>
                 </div>
             </div>
         </div>
         <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
+            <span class="sr-only">Precedent</span>
         </a>
         <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
+            <span class="sr-only">Suivant</span>
         </a>
     </div>
     {% endif %}

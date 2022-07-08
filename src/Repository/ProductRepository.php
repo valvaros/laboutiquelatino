@@ -14,6 +14,7 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
  * @method Product|null findOneBy(array $criteria, array $orderBy = null)
  * @method Product[]    findAll()
  * @method Product[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Product|null findOneBySlug(array $criteria, array $orderBy = null)
  */
 class ProductRepository extends ServiceEntityRepository
 {
@@ -34,9 +35,9 @@ class ProductRepository extends ServiceEntityRepository
         ->select('c','p')
         ->join('p.category', 'c');
 
-    if (!empty($search->categories)){
+    if (!empty($search->categories)) {
         $query = $query 
-        ->andwhere('c.id IN(:categories)')
+        ->andWhere('c.id IN (:categories)')
         ->setParameter('categories', $search->categories);
 
     }

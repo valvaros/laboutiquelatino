@@ -28,9 +28,9 @@ class OrderCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            DateTimeField::new('createdAt', 'Passé le'),
-            TextField::new('user.getFullName', 'Utilisateur'),
+           
+           
+        
             MoneyField::new('total')->setCurrency('EUR'),
             BooleanField::new('isPaid', 'Payée')
         ];

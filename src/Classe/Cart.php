@@ -9,9 +9,12 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 class Cart
 {
     private $session;
+    private $entityManager;
+
 
     public function __construct(EntityManagerInterface $entityManager, SessionInterface $session)
     {
+        $this->entityManager = $entityManager;
         $this->session = $session;
     }
     public function add($id)
@@ -66,13 +69,12 @@ class Cart
 
         if ($this->get()) {
             foreach ($this->get() as $id => $quantity) {
-                $product_object = $this->entityMnanager->getRepository(Product::class)->findOneById($id);
+                $product_object = $this->entityManager->getRepository(Product::class)->find($id);
 
                 if (!$product_object) {
                     $this->delete($id);
                     continue;
                 }
-
 
                 $cartComplete[] = [
                     'product' => $product_object,

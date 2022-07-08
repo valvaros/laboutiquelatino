@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\OrderRepository;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -51,10 +52,11 @@ class Order
      */
     private $orderDetails;
 
+   
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="integer")
      */
-    private $isPaid;
+    private $state;
 
     public function __construct()
     {
@@ -92,9 +94,9 @@ class Order
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    public function setCreatedAt(): self
     {
-        $this->createdAt = $createdAt;
+        $this->createdAt = new DateTime() ;
 
         return $this;
     }
@@ -165,14 +167,15 @@ class Order
         return $this;
     }
 
-    public function getIsPaid(): ?bool
+    
+    public function getState(): ?int
     {
-        return $this->isPaid;
+        return $this->state;
     }
 
-    public function setIsPaid(bool $isPaid): self
+    public function setState(int $state): self
     {
-        $this->isPaid = $isPaid;
+        $this->state = $state;
 
         return $this;
     }

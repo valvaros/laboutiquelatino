@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Controller;
+// le controllers permet de réceptionner une requête(triée par une route )et de définir la réponse appropriée(exemple une route)
+// Afin de creer nimporte quel chose sur symfony on utilise make: par exemplou pour creer une entiter nous utilisons php bin/concole make:entity
 
 use App\Classe\Cart;
 use App\Entity\Address;
@@ -21,7 +23,7 @@ class AccountAddressController extends AbstractController
         $this->entityManager = $entityManager;
     }
     /**
-     * @Route("/compte/addresses", name="account_address")
+     * @Route("/compte/adresses", name="account_address")
      */
     public function index(): Response
     {

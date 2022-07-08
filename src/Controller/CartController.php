@@ -18,19 +18,21 @@ class CartController extends AbstractController
         $this->entityManager = $entityManager;
     }
     /**
-     * @Route("/mon-panier", name="app_cart")
+     * @Route("/mon-panier", name="cart")
      */
     public function index(Cart $cart): Response
     {
         $cartComplete =[];
 
+
+        if ($cart->get()) {
         foreach ($cart->get() as $id => $quantity){
             $cartComplete[] =[
-                'product'=> $this->entityManager->getRepository(Product::class)->findOneBy($id),
+                'product'=> $this->entityManager->getRepository(Product::class)->findOneBy([]),
                 'quantity'=> $quantity
-
             ];
         }
+    }
 
         return $this->render('cart/index.html.twig',[
             'cart'=> $cartComplete
@@ -38,7 +40,7 @@ class CartController extends AbstractController
     }
 
     /**
-     * @Route("/carte/add/{id}", name="add_to_cart")
+     * @Route("/cart/add/{id}", name="add_to_cart")
      */
     public function add(Cart $cart,$id): Response
     {
@@ -48,7 +50,7 @@ class CartController extends AbstractController
     }
 
     /**
-     * @Route("/carte/remove", name="remove_my_cart")
+     * @Route("/cart/remove", name="remove_my_cart")
      */
     public function remove(Cart $cart): Response
     {
@@ -58,7 +60,7 @@ class CartController extends AbstractController
     }
 
     /**
-     * @Route("/carte/delete/{id}", name="delete_to_cart")
+     * @Route("/cart/delete/{id}", name="delete_to_cart")
      */
     public function delete(Cart $cart, $id): Response
     {
@@ -69,7 +71,7 @@ class CartController extends AbstractController
 
 
     /**
-     * @Route("/carte/decrease/{id}", name="decrease_to_cart")
+     * @Route("/cart/decrease/{id}", name="decrease_to_cart")
      */
     public function decrease(Cart $cart, $id): Response
     {
